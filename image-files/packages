@@ -15,4 +15,5 @@ python-keystoneclient
 python-neutronclient
 python-novaclient
 python-openstackclient
+runlike
 six
