@@ -5,6 +5,7 @@ requests
 cryptography
 enum34
 docker
+jsc2f
 pbr
 pip
 purestorage
