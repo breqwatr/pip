@@ -1,9 +1,3 @@
-breqwatr-deployment-tool
-botocore<1.13.0,>=1.12.243
-boto3
-requests
-cryptography
-enum34
 docker
 jsc2f
 pbr
