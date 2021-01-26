@@ -1,18 +1,18 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 # Note: zipp and venusian are deps that don't support python2 any more.
 
 RUN apt-get update \
   && apt-get install -y \
-    python-pip \
+    python3-pip \
     git \
- && pip install \
+ && pip3 install \
       devpi-client \
       devpi-server \
       devpi-web \
       zipp==1.1.1 \
       venusian==1.2.0 \
-  && pip install more-itertools==5.0.0 \
+  && pip3 install more-itertools==5.0.0 \
   && mkdir -p /devpi  /etc/breqwatr
 
 
@@ -36,7 +36,7 @@ RUN devpi-server --start --host 127.0.0.1 --port 3141 --init \
  && mkdir -p /deleteme \
  && cat /etc/breqwatr/packages | while read package; do \
       echo "Downloading package: $package"; \
-      pip download -d /deleteme/ --trusted-host 127.0.0.1 -i http://127.0.0.1:3141/root/core/+simple/ $package; \
+      pip3 download -d /deleteme/ --trusted-host 127.0.0.1 -i http://127.0.0.1:3141/root/core/+simple/ $package; \
     done \
  && devpi-server --stop \
  && rm -rf /deleteme
